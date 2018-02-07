@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
-    ArrayList players = new ArrayList();
+
+
+
+	ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
@@ -85,28 +88,28 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
+		if (currentCategory() == Question.POP.type)
 			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
+		if (currentCategory() == Question.SCIENCE.type)
 			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
+		if (currentCategory() == Question.SPORTS.type)
 			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
+		if (currentCategory() == Question.ROCK.type)
 			System.out.println(rockQuestions.removeFirst());		
 	}
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
-		return "Rock";
+		if (places[currentPlayer] == 0) return Question.POP.type;
+		if (places[currentPlayer] == 4) return Question.POP.type;
+		if (places[currentPlayer] == 8) return Question.POP.type;
+		if (places[currentPlayer] == 1) return Question.SCIENCE.type;
+		if (places[currentPlayer] == 5) return Question.SCIENCE.type;
+		if (places[currentPlayer] == 9) return Question.SCIENCE.type;
+		if (places[currentPlayer] == 2) return Question.SPORTS.type;
+		if (places[currentPlayer] == 6) return Question.SPORTS.type;
+		if (places[currentPlayer] == 10) return Question.SPORTS.type;
+		return Question.ROCK.type;
 	}
 
 	public boolean wasCorrectlyAnswered() {
